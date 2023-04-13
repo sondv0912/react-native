@@ -29,11 +29,20 @@ const GiftBoxCard: React.FC<Props> = ({data}) => {
           Remain boxes : <OxaniumText style={styles.textYellow}>1</OxaniumText>
         </OxaniumText>
         <View style={styles.ribbonFree}>
-          {/* <View>
-            <OxaniumText>Event</OxaniumText>
-          </View> */}
           <OxaniumText style={styles.textFree}>FREE</OxaniumText>
         </View>
+        {data.isLimited && (
+          <View style={styles.expiredIn}>
+            <OxaniumText style={styles.textExpiredIn}>Expired in</OxaniumText>
+            <View style={styles.contentTime}>
+              <Image
+                source={require('../../../assets/img/fire.png')}
+                style={styles.fire}
+              />
+              <OxaniumText style={styles.time}>12d 10h 15p</OxaniumText>
+            </View>
+          </View>
+        )}
       </View>
     </TouchableOpacity>
   );
@@ -75,8 +84,8 @@ const styles = StyleSheet.create({
     marginHorizontal: normalize(6),
     paddingHorizontal: normalize(8),
     paddingBottom: normalize(42),
-    borderRadius: normalize(4),
   },
+  limited: {},
   name: {
     color: 'white',
     fontSize: normalize(12),
@@ -108,6 +117,40 @@ const styles = StyleSheet.create({
     fontSize: 12,
     fontWeight: '700',
     color: 'black',
+  },
+  expiredIn: {
+    position: 'absolute',
+    bottom: 0,
+    left: '50%',
+    transform: [{translateY: 15}, {translateX: -46}],
+    width: normalize(92),
+    height: normalize(30),
+    backgroundColor: '#B81230',
+    borderRadius: normalize(4),
+    paddingHorizontal: normalize(2),
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  textExpiredIn: {
+    fontSize: normalize(8),
+    color: 'white',
+  },
+  contentTime: {
+    display: 'flex',
+    alignItems: 'center',
+    flexDirection: 'row',
+    gap: normalize(4),
+  },
+  fire: {
+    width: normalize(13),
+    height: normalize(16),
+  },
+  time: {
+    fontSize: normalize(10),
+    fontWeight: '700',
+    color: 'white',
+    lineHeight: normalize(12.5),
   },
 });
 

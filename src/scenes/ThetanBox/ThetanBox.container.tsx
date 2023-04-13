@@ -1,19 +1,23 @@
 import React from 'react';
-import {StyleSheet, View} from 'react-native';
+import {ScrollView, StyleSheet, View} from 'react-native';
 import GiftBox from './components/GiftBox';
 import OxaniumText from '../../components/OxaniumText';
 import {normalize} from '../../utils/utils';
+import ListBox from './components/ListBox';
 
 const ThetanBox: React.FC = () => {
   return (
-    <View style={styles.container}>
-      <OxaniumText style={styles.title}>
-        Thetan box contains various heroes with certain drop rates.{'\n'}The
-        higher quality of the Thetan box is, the higher the drop rate for the
-        high-quality Heroes is.
-      </OxaniumText>
-      <GiftBox />
-    </View>
+    <ScrollView>
+      <View style={styles.container}>
+        <OxaniumText style={styles.title}>
+          Thetan box contains various heroes with certain drop rates.{'\n'}The
+          higher quality of the Thetan box is, the higher the drop rate for the
+          high-quality Heroes is.
+        </OxaniumText>
+        <GiftBox />
+        <ListBox />
+      </View>
+    </ScrollView>
   );
 };
 

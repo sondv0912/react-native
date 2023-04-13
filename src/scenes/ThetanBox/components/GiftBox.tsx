@@ -1,8 +1,8 @@
 import React from 'react';
-import {StyleSheet, View} from 'react-native';
+import {Image, StyleSheet, View} from 'react-native';
 import GiftBoxCard from './GiftBoxCard';
 import {normalize} from '../../../utils/utils';
-import OxaniumText from 'src/components/OxaniumText';
+import OxaniumText from '../../../components/OxaniumText';
 
 export type GiftBox = {
   bgPath: string;
@@ -19,6 +19,27 @@ export type GiftBox = {
   refType: number;
   ribbonPath: string;
   textColor: string;
+};
+export type BoxItemType = {
+  bgPath: string;
+  blurColor: string;
+  boxType: number;
+  color: string;
+  cycleSize: number;
+  defaultRewardBox: number;
+  highRewardLimitBoxes: number;
+  imgPath: string;
+  name: string;
+  openTime: number;
+  refType: number;
+  ribbonPath: string;
+  textColor: string;
+  systemPrice: {
+    decimals: number;
+    name: string;
+    type: number;
+    value: number;
+  };
 };
 
 const fakeDataGiftBox: GiftBox[] = [
@@ -61,7 +82,14 @@ const GiftBox: React.FC = () => {
     <View style={styles.container}>
       <View style={styles.bgGiftBox}>
         <View style={styles.bgHeader}>
-          {/* <Image source={require('src/assets/svg/vector_header_giftbox.svg')} /> */}
+          <Image
+            source={require('../../../assets/svg/vector_header_giftbox.svg')}
+            style={styles.vector}
+          />
+          <Image
+            source={require('../../../assets/svg/vector_header_giftbox.svg')}
+            style={styles.vector}
+          />
           <OxaniumText style={styles.textGiftBox}>Gift Box</OxaniumText>
         </View>
       </View>
@@ -113,6 +141,13 @@ const styles = StyleSheet.create({
     lineHeight: normalize(24),
     color: 'white',
     fontWeight: '700',
+  },
+  vector: {
+    position: 'absolute',
+    bottom: 0,
+    left: normalize(-20),
+    width: normalize(11),
+    height: normalize(9),
   },
 });
 
