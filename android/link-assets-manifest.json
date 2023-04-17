@@ -1,0 +1,33 @@
+{
+  "migIndex": 1,
+  "data": [
+    {
+      "path": "src/assets/fonts/Oxanium-Bold.ttf",
+      "sha1": "6007a68a8d474ec656aee3e6f7c526e9f1582d6e"
+    },
+    {
+      "path": "src/assets/fonts/Oxanium-ExtraBold.ttf",
+      "sha1": "ea458c2397c83513659b11e5235c27d521b88675"
+    },
+    {
+      "path": "src/assets/fonts/Oxanium-ExtraLight.ttf",
+      "sha1": "38df790f83199ab4502bac5cd795d1a00ed733d6"
+    },
+    {
+      "path": "src/assets/fonts/Oxanium-Light.ttf",
+      "sha1": "638e560215f941d1507c3b08530c4e64e3996f1e"
+    },
+    {
+      "path": "src/assets/fonts/Oxanium-Medium.ttf",
+      "sha1": "d11ddecc7f59b1d28daf93ee03bb4e2d5edebe64"
+    },
+    {
+      "path": "src/assets/fonts/Oxanium-Regular.ttf",
+      "sha1": "a14a8f6d75dbf1a3443440cb3cedb9911f082469"
+    },
+    {
+      "path": "src/assets/fonts/Oxanium-SemiBold.ttf",
+      "sha1": "8302f955ff5e9d1428839d164263857c0c53a126"
+    }
+  ]
+}
