@@ -9,7 +9,7 @@ const oxaniumFont = {
   '300': 'Light',
   '400': 'Regular',
   '500': 'Regular',
-  '600': 'Regular',
+  '600': 'Bold',
   '700': 'Bold',
   '800': 'ExtraBold',
   '900': 'ExtraBold',
