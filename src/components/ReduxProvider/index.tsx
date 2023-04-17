@@ -1,9 +1,9 @@
 import React, {createContext} from 'react';
-import {ActionType, InitState} from '../../store/type';
+import {Actions, InitState} from '../../store/type';
 import dashboardReducer from '../../store/dashboardReducer';
 import {initState} from '../../store/initState';
 
-const mainReducer: React.Reducer<InitState, ActionType> = (
+const mainReducer: React.Reducer<InitState, Actions> = (
   {dashboardState},
   action,
 ) => ({
@@ -12,7 +12,7 @@ const mainReducer: React.Reducer<InitState, ActionType> = (
 
 const ReduxContext = createContext<{
   state: InitState;
-  dispatch: React.Dispatch<ActionType>;
+  dispatch: React.Dispatch<Actions>;
 }>({
   state: initState,
   dispatch: () => null,

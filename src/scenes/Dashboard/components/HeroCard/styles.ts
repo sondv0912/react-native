@@ -28,6 +28,7 @@ const styles = StyleSheet.create({
     top: 0,
     display: 'flex',
     gap: normalize(8),
+    zIndex: 2,
     alignItems: 'center',
     justifyContent: 'center',
   },

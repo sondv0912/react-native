@@ -12,57 +12,17 @@ import {
 import OxaniumText from '../../../../components/OxaniumText';
 import styles from './styles';
 import LinearGradient from 'react-native-linear-gradient';
-const fakeData = {
-  battleCap: 227,
-  battleCapMax: 227,
-  created: '2023-02-15T09:19:35.863Z',
-  dmg: 0,
-  heroRarity: 0,
-  heroRole: 1,
-  heroTypeId: 0,
-  hp: 0,
-  id: '63eca3a7d96bfb86b536ff08',
-  imageAvatar: 'skin/avatar/1.png',
-  imageFull: 'skin/full/1.png',
-  lastModified: '0001-01-01T00:00:00Z',
-  level: 1,
-  marketType: 0,
-  name: 'Raidon',
-  ownerAddress: '0xa03f89a06beeb7d4d49080ad1cbc671ee2c6df86',
-  ownerId: '642e7822865d2f358ac10d58',
-  price: 5000000000,
-  refId: '63eca3a7d96bfb86b536ff08',
-  refType: 0,
-  rentOutInfo: {
-    price: {
-      decimals: 8,
-      name: 'THC',
-      type: 11,
-      value: 5000000000,
-    },
-    periodHours: 1,
-    rentBattles: 50,
-    thcBonus: 3.25,
-    winRateTHC: {
-      65: 319,
-    },
-    systemCurrency: {decimals: 8, name: 'THC', type: 11, value: 5000000000},
-    timestamp: '2023-04-10T09:12:15.644926131Z',
-    tokenId: '16764527804346',
-    trophyClass: 1,
-  },
-  skinId: 1,
-  skinName: 'Galaxy Ranger',
-  skinRarity: 0,
-  status: 11,
-};
-const HeroCard = () => {
-  console.log(toImageUri(fakeData.imageAvatar));
+import {HeroItemType} from '../../../../models';
 
+type Props = {
+  data: HeroItemType;
+};
+
+const HeroCard: React.FC<Props> = ({data}) => {
   return (
     <TouchableOpacity style={styles.root}>
       <Image
-        source={{uri: toImageUri(fakeData.imageAvatar)}}
+        source={{uri: toImageUri(data.imageAvatar)}}
         style={styles.avatar}
       />
       <Image source={bgItemHero} style={styles.bgItem} />
@@ -70,7 +30,7 @@ const HeroCard = () => {
         <Image source={icTrophyD} />
         <View style={styles.level}>
           <Image source={bgLevel} style={styles.bgLevel} />
-          <OxaniumText style={styles.valueLevel}>{fakeData.level}</OxaniumText>
+          <OxaniumText style={styles.valueLevel}>{data.level}</OxaniumText>
         </View>
         <Image source={icRoleAssasin} style={styles.icRole} />
       </View>
@@ -82,10 +42,8 @@ const HeroCard = () => {
           style={styles.itemInfo}>
           <View style={styles.info}>
             <View style={styles.borderRight} />
-            <OxaniumText style={styles.nameSkin}>
-              {fakeData.skinName}
-            </OxaniumText>
-            <OxaniumText style={styles.name}>{fakeData.name}</OxaniumText>
+            <OxaniumText style={styles.nameSkin}>{data.skinName}</OxaniumText>
+            <OxaniumText style={styles.name}>{data.name}</OxaniumText>
           </View>
           <View style={styles.flexSpaceBetween}>
             <OxaniumText style={styles.releasedTitle}>
@@ -105,19 +63,19 @@ const HeroCard = () => {
           <View style={styles.flexSpaceBetween}>
             <OxaniumText style={styles.textFontSize9}>gTHC battle</OxaniumText>
             <OxaniumText style={styles.battleCap}>{`${
-              fakeData.battleCapMax - fakeData.battleCap
-            }/${fakeData.battleCapMax}`}</OxaniumText>
+              data.battleCapMax - data.battleCap
+            }/${data.battleCapMax}`}</OxaniumText>
           </View>
           <View style={styles.flexSpaceBetween}>
             <OxaniumText style={styles.textFontSize9}>Price</OxaniumText>
             <View style={styles.price}>
               <Image source={icTHC} style={styles.iconPrice} />
               <OxaniumText style={styles.valuePrice}>
-                {fakeData.rentOutInfo.price.value /
-                  Math.pow(10, fakeData.rentOutInfo.price.decimals)}
+                {data.rentOutInfo.price.value /
+                  Math.pow(10, data.rentOutInfo.price.decimals)}
               </OxaniumText>
               <OxaniumText style={styles.typePrice}>
-                {fakeData.rentOutInfo.price.name}
+                {data.rentOutInfo.price.name}
               </OxaniumText>
             </View>
           </View>

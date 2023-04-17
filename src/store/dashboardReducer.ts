@@ -1,11 +1,15 @@
-import {DashboardReducer, EnumActionType} from './type';
+import {DashboardReducer, ActionType} from './type';
 
 const dashboardReducer: DashboardReducer = (state, action) => {
   switch (action.type) {
-    case EnumActionType.UPDATE_BANNER_DASHBOARD:
+    case ActionType.UPDATE_BANNER_DASHBOARD:
       return {dashboard: {...state.dashboard, banner: action.banners}};
-    case EnumActionType.UPDATE_STATISTICS_DASHBOARD:
+    case ActionType.UPDATE_STATISTICS_DASHBOARD:
       return {dashboard: {...state.dashboard, statistics: action.statistics}};
+    case ActionType.UPDATE_RECENTLY_LISTED_DASHBOARD:
+      return {
+        dashboard: {...state.dashboard, listRecently: action.listRecently},
+      };
     default:
       return state;
   }
