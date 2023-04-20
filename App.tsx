@@ -12,6 +12,7 @@ import Navbar from './src/components/Navbar';
 import Dashboard from './src/scenes/Dashboard/Dashboard.container';
 import Header from './src/components/Header';
 import {ReduxProvider} from './src/components/ReduxProvider';
+import ConfirmDialog from './src/components/ConfirmDialog';
 
 function App(): JSX.Element {
   return (
@@ -19,6 +20,7 @@ function App(): JSX.Element {
       <ReduxProvider>
         <Header />
         <Navbar />
+        <ConfirmDialog />
         {/* <ThetanBox /> */}
         <Dashboard />
       </ReduxProvider>

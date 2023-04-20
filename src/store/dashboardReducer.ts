@@ -6,9 +6,19 @@ const dashboardReducer: DashboardReducer = (state, action) => {
       return {dashboard: {...state.dashboard, banner: action.banners}};
     case ActionType.UPDATE_STATISTICS_DASHBOARD:
       return {dashboard: {...state.dashboard, statistics: action.statistics}};
-    case ActionType.UPDATE_RECENTLY_LISTED_DASHBOARD:
+    case ActionType.UPDATE_RECENTLY_LISTED_HEROES_DASHBOARD:
       return {
-        dashboard: {...state.dashboard, listRecently: action.listRecently},
+        dashboard: {
+          ...state.dashboard,
+          listRecentlyHeroes: action.listRecentlyHeroes,
+        },
+      };
+    case ActionType.UPDATE_RECENTLY_LISTED_COSMETICS_DASHBOARD:
+      return {
+        dashboard: {
+          ...state.dashboard,
+          listRecentlyCosmetics: action.listRecentlyCosmetics,
+        },
       };
     default:
       return state;

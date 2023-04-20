@@ -1,5 +1,11 @@
 import React from 'react';
-import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
+import {
+  DeviceEventEmitter,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from 'react-native';
 import {normalize} from '../utils/utils';
 
 const dataFake = [
@@ -27,7 +33,10 @@ const Navbar = () => {
     <View style={styles.container}>
       {dataFake.map(item => (
         <TouchableOpacity
-          onPress={() => setItemAction(item.title)}
+          onPress={() => {
+            DeviceEventEmitter.emit('showImage', {data: `click ${item.title}`});
+            setItemAction(item.title);
+          }}
           key={item.title}>
           <View
             style={[styles.item, itemActive === item.title && styles.active]}>

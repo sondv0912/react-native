@@ -12,7 +12,7 @@ export type BannerItem = {
 export type HeroItemType = {
   battleCap: number;
   battleCapMax: number;
-  created: '2023-02-15T09:19:35.863Z';
+  created: string;
   dmg: number;
   heroRarity: number;
   heroRole: number;
@@ -56,6 +56,36 @@ export type HeroItemType = {
   skinRarity: number;
   status: number;
 };
+export const enum CosmeticType {
+  AVATAR = 1,
+  AVATAR_FRAME = 2,
+  EMOTE = 3,
+  SPACESHIP = 4,
+}
+export type CosmeticItemType = {
+  blockchainId: number;
+  cosmeticInfo: {status: number; typeId: number; type: number; rarity: number};
+  createdAt: string;
+  saleInfo: {
+    price: {
+      decimals: number;
+      name: string;
+      type: number;
+      value: number;
+    };
+  };
+  userAddress: string;
+  cosmeticRarity: number;
+  cosmeticType: number;
+  cosmeticName: string;
+  id: string;
+  lastModified: string;
+  ownerAddress: string;
+  refId: string;
+  refType: number;
+  timestamp: number;
+  tokenId: number;
+};
 
 export type ConfigBanner = {
   listBanner: BannerItem[];
@@ -65,3 +95,8 @@ export type ConfigRecently = {
   listItem: HeroItemType[];
   timeout: number;
 };
+
+export enum TabCategoryItem {
+  HEROES = 'heroes',
+  COSMETICS = 'cosmetics',
+}
