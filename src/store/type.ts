@@ -1,4 +1,9 @@
-import {BannerItem, CosmeticItemType, HeroItemType} from '../models';
+import {
+  BannerItem,
+  CosmeticItemType,
+  HeroItemType,
+  SkinItemType,
+} from '../models';
 
 export type DashboardState = {
   dashboard: {
@@ -11,6 +16,7 @@ export type DashboardState = {
 
 export type BuyTabState = {
   heroes?: HeroItemType[];
+  configSkin: SkinItemType[];
 };
 
 export type InitState = {

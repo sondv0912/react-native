@@ -1,0 +1,177 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Link renders correctly 1`] = `
+<View
+  style={
+    [
+      {
+        "flexDirection": "row",
+        "gap": 32,
+      },
+      {
+        "alignItems": "center",
+        "display": "flex",
+        "justifyContent": "center",
+      },
+    ]
+  }
+>
+  <View
+    accessibilityState={
+      {
+        "busy": undefined,
+        "checked": undefined,
+        "disabled": undefined,
+        "expanded": undefined,
+        "selected": undefined,
+      }
+    }
+    accessibilityValue={
+      {
+        "max": undefined,
+        "min": undefined,
+        "now": undefined,
+        "text": undefined,
+      }
+    }
+    accessible={true}
+    collapsable={false}
+    focusable={false}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      {
+        "alignItems": "center",
+        "backgroundColor": "#5336D0",
+        "borderRadius": 12,
+        "display": "flex",
+        "height": 64,
+        "justifyContent": "center",
+        "opacity": 1,
+        "width": 64,
+      }
+    }
+  >
+    <Image
+      source={
+        {
+          "testUri": "../../../src/assets/img/ic_arrow_left.png",
+        }
+      }
+    />
+  </View>
+  <View
+    style={
+      [
+        {
+          "alignItems": "center",
+          "display": "flex",
+          "justifyContent": "center",
+        },
+        {
+          "flexDirection": "row",
+          "gap": 16,
+        },
+      ]
+    }
+  >
+    <TextInput
+      keyboardType="numeric"
+      onChangeText={[Function]}
+      onSubmitEditing={[Function]}
+      style={
+        {
+          "backgroundColor": "#000",
+          "borderRadius": 12,
+          "color": "white",
+          "fontSize": 28,
+          "height": 64,
+          "padding": 0,
+          "textAlign": "center",
+          "width": 128,
+        }
+      }
+      value="1"
+    />
+    <Text
+      style={
+        [
+          {
+            "color": "white",
+            "fontSize": 28,
+          },
+          {
+            "fontFamily": "Oxanium-Regular",
+          },
+          {
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+          },
+        ]
+      }
+    >
+      of 
+      10
+    </Text>
+  </View>
+  <View
+    accessibilityState={
+      {
+        "busy": undefined,
+        "checked": undefined,
+        "disabled": undefined,
+        "expanded": undefined,
+        "selected": undefined,
+      }
+    }
+    accessibilityValue={
+      {
+        "max": undefined,
+        "min": undefined,
+        "now": undefined,
+        "text": undefined,
+      }
+    }
+    accessible={true}
+    collapsable={false}
+    focusable={false}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      {
+        "alignItems": "center",
+        "backgroundColor": "#5336D0",
+        "borderRadius": 12,
+        "display": "flex",
+        "height": 64,
+        "justifyContent": "center",
+        "opacity": 1,
+        "transform": [
+          {
+            "rotate": "180deg",
+          },
+        ],
+        "width": 64,
+      }
+    }
+  >
+    <Image
+      source={
+        {
+          "testUri": "../../../src/assets/img/ic_arrow_left.png",
+        }
+      }
+    />
+  </View>
+</View>
+`;

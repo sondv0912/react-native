@@ -9,6 +9,23 @@ export type BannerItem = {
   status: number;
 };
 
+export type SkinItemType = {
+  id: number;
+  heroTypeId: number;
+  heroRarity: number;
+  skinRarity: number;
+  imageAvatar: string;
+  imageSmallAvatar: string;
+  imageFull: string;
+  model3D: string;
+  scaleRatio: number;
+  cost: number;
+  name: string;
+  isActive: boolean;
+  isListMarket?: boolean;
+  isSellNonNFTShop: boolean;
+};
+
 export type HeroItemType = {
   battleCap: number;
   battleCapMax: number;
