@@ -7,6 +7,7 @@ import {ReduxContext} from '../../components/ReduxProvider';
 import {ActionType} from '../../store/type';
 import Statistics from './components/Statistics';
 import RecentlyListed from './components/RecentlyListed';
+import withLoading from '../../HOC/withLoading';
 
 const Dashboard = () => {
   const {state, dispatch} = React.useContext(ReduxContext);
@@ -34,4 +35,4 @@ const Dashboard = () => {
   );
 };
 
-export default Dashboard;
+export default withLoading(Dashboard);
