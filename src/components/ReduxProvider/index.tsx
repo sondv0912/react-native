@@ -2,12 +2,14 @@ import React, {createContext} from 'react';
 import {Actions, InitState} from '../../store/type';
 import dashboardReducer from '../../store/dashboardReducer';
 import {initState} from '../../store/initState';
+import buyTabReducer from '../../store/buyTabReducer';
 
 const mainReducer: React.Reducer<InitState, Actions> = (
-  {dashboardState},
+  {dashboardState, buyTabState},
   action,
 ) => ({
   dashboardState: dashboardReducer(dashboardState, action),
+  buyTabState: buyTabReducer(buyTabState, action),
 });
 
 const ReduxContext = createContext<{

@@ -87,6 +87,17 @@ export type CosmeticItemType = {
   tokenId: number;
 };
 
+export interface InputArg {
+  [key: string]:
+    | unknown[]
+    | InputArg
+    | string
+    | number
+    | boolean
+    | null
+    | undefined;
+}
+
 export type ConfigBanner = {
   listBanner: BannerItem[];
   timeout: number;

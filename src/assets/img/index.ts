@@ -13,3 +13,4 @@ export const icTHC = require('./ic_THC.png');
 export const icHero = require('./ic_hero.png');
 export const icCosmetic = require('./ic_cosmetic.png');
 export const icShoppingCart = require('./ic_shopping_cart.png');
+export const icArrowLeft = require('./ic_arrow_left.png');

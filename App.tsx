@@ -9,10 +9,11 @@ import React from 'react';
 import {SafeAreaView, StyleSheet} from 'react-native';
 // import ThetanBox from './src/scenes/ThetanBox/ThetanBox.container';
 import Navbar from './src/components/Navbar';
-import Dashboard from './src/scenes/Dashboard/Dashboard.container';
+// import Dashboard from './src/scenes/Dashboard/Dashboard.container';
 import Header from './src/components/Header';
 import {ReduxProvider} from './src/components/ReduxProvider';
 import ConfirmDialog from './src/components/ConfirmDialog';
+import BuyTab from './src/scenes/BuyTab/BuyTab.container';
 
 function App(): JSX.Element {
   return (
@@ -22,7 +23,8 @@ function App(): JSX.Element {
         <Navbar />
         <ConfirmDialog />
         {/* <ThetanBox /> */}
-        <Dashboard />
+        {/* <Dashboard /> */}
+        <BuyTab />
       </ReduxProvider>
     </SafeAreaView>
   );

@@ -1,4 +1,4 @@
-import {DashboardState} from './type';
+import {BuyTabState, DashboardState, InitState} from './type';
 
 export const initDashboardState: DashboardState = {
   dashboard: {
@@ -174,7 +174,8 @@ export const initDashboardState: DashboardState = {
     ],
   },
 };
-
-export const initState = {
+export const initBuyTabState: BuyTabState = {};
+export const initState: InitState = {
   dashboardState: initDashboardState,
+  buyTabState: initBuyTabState,
 };
