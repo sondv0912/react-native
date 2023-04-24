@@ -9,10 +9,12 @@ import {ReduxContext} from '../../components/ReduxProvider';
 import {callApi} from '../../https/fetch';
 import {ActionType} from '../../store/type';
 import Pagination from '../../components/Pagination';
+import ModalFilter from './components/ModalFilter';
 
 const BuyTab = () => {
   const [tab, setTab] = React.useState<TabCategoryItem>(TabCategoryItem.HEROES);
   const [page, setPage] = React.useState<number>(1);
+  const [showModal, setShowModal] = React.useState<boolean>(false);
   const {dispatch} = React.useContext(ReduxContext);
   React.useEffect(() => {
     const onFetch = async () => {
@@ -29,35 +31,48 @@ const BuyTab = () => {
     onFetch();
   }, [dispatch]);
   return (
-    <ScrollView style={styles.root}>
-      <View style={styles.tabs}>
-        <TouchableOpacity
-          style={styles.tab}
-          onPress={() => setTab(TabCategoryItem.HEROES)}>
-          <Image source={icHero} />
-          <OxaniumText style={styles.tabTitle}>Heroes</OxaniumText>
-          {tab === TabCategoryItem.HEROES && (
-            <View style={styles.borderActive} />
-          )}
-        </TouchableOpacity>
-        <View style={styles.space} />
-        <TouchableOpacity
-          style={styles.tab}
-          onPress={() => setTab(TabCategoryItem.COSMETICS)}>
-          <Image source={icCosmetic} />
-          <OxaniumText style={styles.tabTitle}>Cosmetic</OxaniumText>
-          {tab === TabCategoryItem.COSMETICS && (
-            <View style={styles.borderActive} />
-          )}
+    <View style={styles.root}>
+      <ScrollView>
+        <View style={styles.tabs}>
+          <TouchableOpacity
+            style={styles.tab}
+            onPress={() => setTab(TabCategoryItem.HEROES)}>
+            <Image source={icHero} />
+            <OxaniumText style={styles.tabTitle}>Heroes</OxaniumText>
+            {tab === TabCategoryItem.HEROES && (
+              <View style={styles.borderActive} />
+            )}
+          </TouchableOpacity>
+          <View style={styles.space} />
+          <TouchableOpacity
+            style={styles.tab}
+            onPress={() => setTab(TabCategoryItem.COSMETICS)}>
+            <Image source={icCosmetic} />
+            <OxaniumText style={styles.tabTitle}>Cosmetic</OxaniumText>
+            {tab === TabCategoryItem.COSMETICS && (
+              <View style={styles.borderActive} />
+            )}
+          </TouchableOpacity>
+        </View>
+        <RecentlyListed tab={tab} />
+        <Pagination
+          page={page}
+          onPageChange={pageCurrent => setPage(pageCurrent)}
+          totalPages={10}
+        />
+      </ScrollView>
+      <View style={styles.groupBtn}>
+        <TouchableOpacity style={styles.btn} onPress={() => setShowModal(true)}>
+          <OxaniumText style={styles.tabTitle}>Filter</OxaniumText>
         </TouchableOpacity>
       </View>
-      <RecentlyListed tab={tab} />
-      <Pagination
-        page={page}
-        onPageChange={pageCurrent => setPage(pageCurrent)}
-        totalPages={10}
+      <ModalFilter
+        modalVisible={showModal}
+        toggleModal={() => {
+          setShowModal(!showModal);
+        }}
       />
-    </ScrollView>
+    </View>
   );
 };
 

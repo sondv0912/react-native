@@ -3,7 +3,8 @@ import {normalize} from '../../utils/utils';
 
 const styles = StyleSheet.create({
   root: {
-    marginBottom: normalize(20),
+    flex: 1,
+    position: 'relative',
   },
   tabs: {
     display: 'flex',
@@ -43,6 +44,21 @@ const styles = StyleSheet.create({
     left: 0,
     right: 0,
     backgroundColor: '#795CF5',
+  },
+  groupBtn: {
+    position: 'absolute',
+    backgroundColor: '#5336D0',
+    bottom: normalize(10),
+    borderRadius: normalize(6),
+    left: '50%',
+    transform: [{translateX: normalize(-50)}],
+  },
+  btn: {
+    width: normalize(100),
+    height: normalize(40),
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
 });
 
