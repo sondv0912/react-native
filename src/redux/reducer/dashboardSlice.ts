@@ -18,13 +18,22 @@ const dashboardSlice = createSlice({
   name: 'dashboard',
   initialState,
   reducers: {
-    updateBanner(state, action: PayloadAction<BannerItem[]>) {
+    fetchBanner(state) {
+      state.loading = true;
+    },
+    fetchBannerSuccess(state, action: PayloadAction<BannerItem[]>) {
       state.banner = action.payload;
+      state.loading = false;
+    },
+    fetchBannerError(state, action: PayloadAction<AppError>) {
+      state.loading = false;
+      state.error = action.payload;
     },
   },
 });
 // Actions
-export const dashboardActions = dashboardSlice.actions;
+export const {fetchBanner, fetchBannerSuccess, fetchBannerError} =
+  dashboardSlice.actions;
 
 // selectors
 export const selectDashboardBanner = (state: RootState) =>
