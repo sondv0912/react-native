@@ -7,36 +7,38 @@ import {
   View,
 } from 'react-native';
 import {normalize} from '../utils/utils';
-import {useNavigation} from '@react-navigation/native';
+import {ParamListBase, useNavigation} from '@react-navigation/native';
+import {StaskScene} from '../models';
+import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 
-const dataFake = [
+const dataFake: {title: StaskScene; hot: boolean}[] = [
   {
-    title: 'Dashboard',
+    title: StaskScene.DASHBOARD,
     hot: false,
   },
   {
-    title: 'ThetanBox',
+    title: StaskScene.THETANBOX,
     hot: true,
   },
   {
-    title: 'Buy',
+    title: StaskScene.BUY,
     hot: false,
   },
   {
-    title: 'Rent',
+    title: StaskScene.Rent,
     hot: false,
   },
 ];
 
 const Navbar = () => {
   const [itemActive, setItemAction] = React.useState<string>(dataFake[0].title);
-  const navigation = useNavigation();
+  const navigation = useNavigation<NativeStackNavigationProp<ParamListBase>>();
   return (
     <View style={styles.container}>
       {dataFake.map(item => (
         <TouchableOpacity
           onPress={() => {
-            // navigation.navigate();
+            navigation.navigate(item.title);
             DeviceEventEmitter.emit('showImage', {data: `click ${item.title}`});
             setItemAction(item.title);
           }}

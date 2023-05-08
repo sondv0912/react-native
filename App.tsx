@@ -19,6 +19,7 @@ import {icEvent, icMarket} from './src/assets/img';
 import store from './src/redux/store';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import {StaskScene} from './src/models';
 const Tab = createBottomTabNavigator();
 const SettingsStack = createNativeStackNavigator();
 const HomeStack = createNativeStackNavigator();
@@ -45,14 +46,24 @@ function App(): JSX.Element {
                     <Navbar />
                     <SettingsStack.Navigator>
                       <SettingsStack.Screen
-                        name="Dashboard"
+                        name={StaskScene.DASHBOARD}
                         options={{headerShown: false}}
                         component={Dashboard}
                       />
                       <SettingsStack.Screen
-                        name="Thetanbox"
+                        name={StaskScene.THETANBOX}
+                        options={{headerShown: false}}
+                        component={ThetanBox}
+                      />
+                      <SettingsStack.Screen
+                        name={StaskScene.BUY}
                         options={{headerShown: false}}
                         component={Dashboard}
+                      />
+                      <SettingsStack.Screen
+                        name={StaskScene.Rent}
+                        options={{headerShown: false}}
+                        component={ThetanBox}
                       />
                     </SettingsStack.Navigator>
                   </>

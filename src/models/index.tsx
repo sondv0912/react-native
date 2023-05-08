@@ -9,6 +9,13 @@ export type BannerItem = {
   status: number;
 };
 
+export enum StaskScene {
+  DASHBOARD = 'Dashboard',
+  THETANBOX = 'Thetanbox',
+  BUY = 'Buy',
+  Rent = 'Rent',
+}
+
 export type SkinItemType = {
   id: number;
   heroTypeId: number;
