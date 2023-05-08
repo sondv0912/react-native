@@ -7,6 +7,7 @@ import {
   View,
 } from 'react-native';
 import {normalize} from '../utils/utils';
+import {useNavigation} from '@react-navigation/native';
 
 const dataFake = [
   {
@@ -29,11 +30,13 @@ const dataFake = [
 
 const Navbar = () => {
   const [itemActive, setItemAction] = React.useState<string>(dataFake[0].title);
+  const navigation = useNavigation();
   return (
     <View style={styles.container}>
       {dataFake.map(item => (
         <TouchableOpacity
           onPress={() => {
+            // navigation.navigate();
             DeviceEventEmitter.emit('showImage', {data: `click ${item.title}`});
             setItemAction(item.title);
           }}

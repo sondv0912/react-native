@@ -9,6 +9,7 @@ import {
   fetchBanner,
   selectDashboardBanner,
 } from '../../redux/reducer/dashboardSlice';
+import styles from './Dashboaed.styles';
 
 const Dashboard = () => {
   const dispatch = useAppDispatch();
@@ -20,7 +21,7 @@ const Dashboard = () => {
     fetchData();
   }, [dispatch, fetchData]);
   return (
-    <ScrollView>
+    <ScrollView style={styles.root}>
       {!!banner && <Banner listBanner={banner} />}
       <Statistics />
       <RecentlyListed />

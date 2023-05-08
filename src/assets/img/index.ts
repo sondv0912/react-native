@@ -15,3 +15,5 @@ export const icCosmetic = require('./ic_cosmetic.png');
 export const icShoppingCart = require('./ic_shopping_cart.png');
 export const icArrowLeft = require('./ic_arrow_left.png');
 export const icClose = require('./ic_close.png');
+export const icMarket = require('./ic_market.png');
+export const icEvent = require('./ic_event.png');
