@@ -16,6 +16,7 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import RootNavigator from './src/routers/RootNavigator';
 import HeroDetail from './src/scenes/HeroDetail/HeroDetail.container';
 import {icBack} from './src/assets/img';
+import Profile from './src/scenes/Profile/Profile.container';
 
 const Stack = createNativeStackNavigator();
 
@@ -41,6 +42,18 @@ function App(): JSX.Element {
                   },
                 }}
                 component={HeroDetail}
+              />
+              <Stack.Screen
+                name={'Profile'}
+                options={{
+                  headerBackImageSource: icBack,
+                  headerTitleAlign: 'center',
+                  headerTintColor: '#fff',
+                  headerStyle: {
+                    backgroundColor: '#5336D0',
+                  },
+                }}
+                component={Profile}
               />
             </Stack.Navigator>
           </NavigationContainer>

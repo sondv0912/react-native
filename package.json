@@ -17,6 +17,7 @@
     "@react-navigation/native-stack": "^6.9.12",
     "@reduxjs/toolkit": "^1.9.1",
     "formik": "^2.2.9",
+    "postcss": "^8.4.23",
     "react": "18.2.0",
     "react-native": "0.71.6",
     "react-native-linear-gradient": "^2.6.2",
@@ -27,7 +28,8 @@
     "react-native-swiper": "^1.6.0",
     "react-native-tab-view": "^3.5.1",
     "react-redux": "^8.0.5",
-    "redux-saga": "^1.2.3"
+    "redux-saga": "^1.2.3",
+    "styled-components": "^6.0.0-rc.1"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",

@@ -2,16 +2,16 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import React from 'react';
 import {Image} from 'react-native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import Dashboard from '../scenes/Dashboard/Dashboard.container';
-import {StackScene} from '../models';
 import ThetanBox from '../scenes/ThetanBox/ThetanBox.container';
-import {icEvent, icMarket} from '../assets/img';
+import {icEvent, icMarket, icMenu} from '../assets/img';
 import Navbar from '../components/Navbar';
+import Menu from '../scenes/Menu/Menu.container';
 
 const Tab = createBottomTabNavigator();
 
 const TabMarketIcon = () => <Image source={icMarket} />;
 const TabEventIcon = () => <Image source={icEvent} />;
+const TabMenuIcon = () => <Image source={icMenu} />;
 const SettingsStack = createNativeStackNavigator();
 const HomeStack = createNativeStackNavigator();
 const RootNavigator = () => {
@@ -31,7 +31,7 @@ const RootNavigator = () => {
           <>
             <SettingsStack.Navigator>
               <SettingsStack.Screen
-                name={StackScene.DASHBOARD}
+                name={'Home'}
                 options={{headerShown: false}}
                 component={Navbar}
               />
@@ -45,6 +45,17 @@ const RootNavigator = () => {
             <HomeStack.Screen
               name="Thetan Box"
               component={ThetanBox}
+              options={{headerShown: false}}
+            />
+          </HomeStack.Navigator>
+        )}
+      </Tab.Screen>
+      <Tab.Screen name="Menu" options={{tabBarIcon: TabMenuIcon}}>
+        {() => (
+          <HomeStack.Navigator>
+            <HomeStack.Screen
+              name="Menu Screen"
+              component={Menu}
               options={{headerShown: false}}
             />
           </HomeStack.Navigator>
