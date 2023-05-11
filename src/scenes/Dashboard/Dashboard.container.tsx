@@ -9,9 +9,9 @@ import {
   fetchBanner,
   selectDashboardBanner,
 } from '../../redux/reducer/dashboardSlice';
-import styles from './Dashboaed.styles';
+import styles from './Dashboard.styles';
 
-const Dashboard = () => {
+const Dashboard: React.FC = () => {
   const dispatch = useAppDispatch();
   const banner = useAppSelector(selectDashboardBanner);
   const fetchData = React.useCallback(async () => {

@@ -13,14 +13,19 @@ import OxaniumText from '../../../../components/OxaniumText';
 import styles from './styles';
 import LinearGradient from 'react-native-linear-gradient';
 import {HeroItemType} from '../../../../models';
+import {ParamListBase, useNavigation} from '@react-navigation/native';
+import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 
 type Props = {
   data: HeroItemType;
 };
 
 const HeroCard: React.FC<Props> = ({data}) => {
+  const navigation = useNavigation<NativeStackNavigationProp<ParamListBase>>();
   return (
-    <TouchableOpacity style={styles.root}>
+    <TouchableOpacity
+      style={styles.root}
+      onPress={() => navigation.navigate('Hero Detail')}>
       <Image
         source={{uri: toImageUri(data.imageAvatar)}}
         style={styles.avatar}

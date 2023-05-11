@@ -9,7 +9,7 @@ export type BannerItem = {
   status: number;
 };
 
-export enum StaskScene {
+export enum StackScene {
   DASHBOARD = 'Dashboard',
   THETANBOX = 'Thetanbox',
   BUY = 'Buy',

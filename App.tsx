@@ -6,85 +6,43 @@
  */
 
 import React from 'react';
-import {Image, SafeAreaView, StyleSheet} from 'react-native';
-import ThetanBox from './src/scenes/ThetanBox/ThetanBox.container';
-import Navbar from './src/components/Navbar';
-import Dashboard from './src/scenes/Dashboard/Dashboard.container';
-import Header from './src/components/Header';
+import {SafeAreaView, StyleSheet} from 'react-native';
 import {ReduxProvider} from './src/components/ReduxProvider';
 // import ConfirmDialog from './src/components/ConfirmDialog';
 import {NavigationContainer} from '@react-navigation/native';
 import {Provider} from 'react-redux';
-import {icEvent, icMarket} from './src/assets/img';
 import store from './src/redux/store';
-import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import {StaskScene} from './src/models';
-const Tab = createBottomTabNavigator();
-const SettingsStack = createNativeStackNavigator();
-const HomeStack = createNativeStackNavigator();
+import RootNavigator from './src/routers/RootNavigator';
+import HeroDetail from './src/scenes/HeroDetail/HeroDetail.container';
+import {icBack} from './src/assets/img';
 
-const TabMarketIcon = () => <Image source={icMarket} />;
-const TabEventIcon = () => <Image source={icEvent} />;
+const Stack = createNativeStackNavigator();
 
 function App(): JSX.Element {
   return (
     <SafeAreaView style={styles.root}>
-      <Header />
       <Provider store={store}>
         <ReduxProvider>
           <NavigationContainer>
-            <Tab.Navigator
-              screenOptions={{
-                headerShown: false,
-                tabBarActiveTintColor: '#795CF5',
-                tabBarStyle: {backgroundColor: '#0F0933'},
-              }}>
-              <Tab.Screen name="Market" options={{tabBarIcon: TabMarketIcon}}>
-                {() => (
-                  <>
-                    <Navbar />
-                    <SettingsStack.Navigator>
-                      <SettingsStack.Screen
-                        name={StaskScene.DASHBOARD}
-                        options={{headerShown: false}}
-                        component={Dashboard}
-                      />
-                      <SettingsStack.Screen
-                        name={StaskScene.THETANBOX}
-                        options={{headerShown: false}}
-                        component={ThetanBox}
-                      />
-                      <SettingsStack.Screen
-                        name={StaskScene.BUY}
-                        options={{headerShown: false}}
-                        component={Dashboard}
-                      />
-                      <SettingsStack.Screen
-                        name={StaskScene.Rent}
-                        options={{headerShown: false}}
-                        component={ThetanBox}
-                      />
-                    </SettingsStack.Navigator>
-                  </>
-                )}
-              </Tab.Screen>
-              <Tab.Screen name="Event" options={{tabBarIcon: TabEventIcon}}>
-                {() => (
-                  <HomeStack.Navigator>
-                    <HomeStack.Screen
-                      name="Thetan box"
-                      component={ThetanBox}
-                      options={{headerShown: false}}
-                    />
-                  </HomeStack.Navigator>
-                )}
-              </Tab.Screen>
-            </Tab.Navigator>
-            {/* <ConfirmDialog /> */}
-            {/* <ThetanBox /> */}
-            {/* <Dashboard isLoading={false} /> */}
-            {/* <BuyTab /> */}
+            <Stack.Navigator>
+              <Stack.Screen
+                name={'Home'}
+                options={{headerShown: false}}
+                component={RootNavigator}
+              />
+              <Stack.Screen
+                name={'Hero Detail'}
+                options={{
+                  headerTitle: '',
+                  headerBackImageSource: icBack,
+                  headerStyle: {
+                    backgroundColor: '#0F0933',
+                  },
+                }}
+                component={HeroDetail}
+              />
+            </Stack.Navigator>
           </NavigationContainer>
         </ReduxProvider>
       </Provider>

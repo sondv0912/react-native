@@ -17,3 +17,4 @@ export const icArrowLeft = require('./ic_arrow_left.png');
 export const icClose = require('./ic_close.png');
 export const icMarket = require('./ic_market.png');
 export const icEvent = require('./ic_event.png');
+export const icBack = require('./ic_back.png');
