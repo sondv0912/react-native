@@ -17,10 +17,18 @@ import RootNavigator from './src/routers/RootNavigator';
 import HeroDetail from './src/scenes/HeroDetail/HeroDetail.container';
 import {icBack} from './src/assets/img';
 import Profile from './src/scenes/Profile/Profile.container';
+import {
+  notificationLister,
+  requestUserPermission,
+} from './src/utils/pushnotification';
 
 const Stack = createNativeStackNavigator();
 
 function App(): JSX.Element {
+  React.useEffect(() => {
+    requestUserPermission();
+    notificationLister();
+  }, []);
   return (
     <SafeAreaView style={styles.root}>
       <Provider store={store}>
