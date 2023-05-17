@@ -19,6 +19,7 @@
     "@react-navigation/native": "^6.1.6",
     "@react-navigation/native-stack": "^6.9.12",
     "@reduxjs/toolkit": "^1.9.1",
+    "axios": "^1.4.0",
     "formik": "^2.2.9",
     "postcss": "^8.4.23",
     "react": "18.2.0",
