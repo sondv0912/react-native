@@ -6,7 +6,6 @@ export async function requestUserPermission() {
   const enabled =
     authStatus === messaging.AuthorizationStatus.AUTHORIZED ||
     authStatus === messaging.AuthorizationStatus.PROVISIONAL;
-
   if (enabled) {
     console.log('Authorization status:', authStatus);
     getFCMToken();
@@ -15,10 +14,13 @@ export async function requestUserPermission() {
 
 export async function getFCMToken() {
   let fcmToken = await AsyncStorage.getItem('fcmToken');
+  console.log(fcmToken);
+
   if (!fcmToken) {
     try {
       fcmToken = await messaging().getToken();
       if (fcmToken) {
+        console.log(fcmToken);
         AsyncStorage.setItem('fcmToken', fcmToken);
       }
     } catch (error) {
