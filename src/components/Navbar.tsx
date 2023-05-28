@@ -1,42 +1,68 @@
 import React from 'react';
 import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import {normalize} from '../utils/utils';
+import {StackScene} from '../models';
+import {SceneMap, TabView} from 'react-native-tab-view';
+import Dashboard from '../scenes/Dashboard/Dashboard.container';
+import ThetanBox from '../scenes/ThetanBox/ThetanBox.container';
 
-const dataFake = [
+const dataFake: {title: StackScene; hot: boolean}[] = [
   {
-    title: 'Dashboard',
+    title: StackScene.DASHBOARD,
     hot: false,
   },
   {
-    title: 'ThetanBox',
+    title: StackScene.THETANBOX,
     hot: true,
   },
   {
-    title: 'Buy',
+    title: StackScene.BUY,
     hot: false,
   },
   {
-    title: 'Rent',
+    title: StackScene.Rent,
     hot: false,
   },
 ];
 
+const renderScene = SceneMap({
+  Dashboard: Dashboard,
+  ThetanBox: ThetanBox,
+});
+
 const Navbar = () => {
-  const [itemActive, setItemAction] = React.useState<string>(dataFake[0].title);
+  // const [itemActive, setItemAction] = React.useState<string>(dataFake[0].title);
+  const [index, setIndex] = React.useState(0);
+  const [routes] = React.useState([
+    {key: 'Dashboard', title: 'Dashboard'},
+    {key: 'ThetanBox', title: 'ThetanBox'},
+  ]);
   return (
-    <View style={styles.container}>
-      {dataFake.map(item => (
-        <TouchableOpacity
-          onPress={() => setItemAction(item.title)}
-          key={item.title}>
-          <View
-            style={[styles.item, itemActive === item.title && styles.active]}>
-            {item.hot && <View style={styles.hot} />}
-            <Text style={styles.text}>{item.title}</Text>
-          </View>
-        </TouchableOpacity>
-      ))}
-    </View>
+    // <View style={styles.container}>
+    //   <TabView
+    //     navigationState={{index, routes}}
+    //     renderScene={renderScene}
+    //     onIndexChange={setIndex}
+    //   />
+    //   {/* {dataFake.map(item => (
+    //     <TouchableOpacity
+    //       onPress={() => {
+    //         setItemAction(item.title);
+    //       }}
+    //       key={item.title}>
+    //       <View
+    //         style={[styles.item, itemActive === item.title && styles.active]}>
+    //         {item.hot && <View style={styles.hot} />}
+    //         <Text style={styles.text}>{item.title}</Text>
+    //       </View>
+    //     </TouchableOpacity>
+    //   ))} */}
+    // </View>
+    <TabView
+      navigationState={{index, routes}}
+      renderScene={renderScene}
+      onIndexChange={setIndex}
+    />
   );
 };
 
